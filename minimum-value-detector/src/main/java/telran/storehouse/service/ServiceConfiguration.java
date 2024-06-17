@@ -9,7 +9,7 @@ import lombok.Getter;
 @Configuration
 @Getter
 public class ServiceConfiguration {
-	@Value("${app.threshold.value.provider.host:localhost}")
+	@Value("${app.threshold.provider.host:localhost}")
 	String host;
 	@Value("${app.threshold.provider.port}")
 	int port;
