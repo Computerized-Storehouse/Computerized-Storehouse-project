@@ -1,8 +1,9 @@
 package telran.storehouse.service;
 
 
-import telran.storehouse.entity.CompletedOrder;
+import telran.storehouse.dto.OrderDataDto;
+
 
 public interface OrdersUpdaterService {
-	CompletedOrder updateOrder(long orderId);
+	OrderDataDto updateOrder(long orderId);
 }

@@ -96,5 +96,6 @@
         <module>orders-updater</module>
         <module>values-analyzer</module>
         <module>order-data-provider</module>
+        <module>cw-agent</module>
     </modules>
 </project>

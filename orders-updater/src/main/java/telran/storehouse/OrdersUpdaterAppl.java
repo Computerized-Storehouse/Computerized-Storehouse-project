@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import telran.storehouse.dto.OrderDataDto;
 import telran.storehouse.service.OrdersUpdaterService;
 import org.springframework.cloud.stream.function.StreamBridge;
 @Slf4j
@@ -23,13 +24,13 @@ public class OrdersUpdaterAppl {
 		SpringApplication.run(OrdersUpdaterAppl.class, args);
 	}
 	@Bean
-	Consumer<Long>ordersUpdaterConsumer(){
+	Consumer<Long> ordersUpdaterConsumer(){
 		return orderId -> orderUpdateProcessing(orderId);
 	}
 	private void orderUpdateProcessing(Long orderId) {
-		service.updateOrder(orderId);
-		streamBridge.send(producerBindingName, orderId);
-		log.debug("Order {} closed", orderId);
+		OrderDataDto completedOrder = service.updateOrder(orderId);
+		streamBridge.send(producerBindingName, completedOrder);
+		log.debug("Order {} closed", completedOrder.orderId());
 		
 	}
 }

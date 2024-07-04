@@ -52,7 +52,7 @@ class OrderUpdaterServiceTest {
 	@Rollback
 	@Test
 	void orderUpdater_updateOrder() {
-		assertEquals(ORDER_ID_NORMAL, ordersUpdaterService.updateOrder(ORDER_ID_NORMAL).getOrderId());
+		assertEquals(ORDER_ID_NORMAL, ordersUpdaterService.updateOrder(ORDER_ID_NORMAL).orderId());
 		List<Order> listOrders = ordersRepo.findAll();
 		assertEquals(2, listOrders.size());
 		List<CompletedOrder> listCompletedOrders = completedOrdersRepo.findAll();
