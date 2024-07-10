@@ -97,5 +97,6 @@
         <module>values-analyzer</module>
         <module>order-data-provider</module>
         <module>cw-agent</module>
+        <module>config-server-computerized-storehouse</module>
     </modules>
 </project>
