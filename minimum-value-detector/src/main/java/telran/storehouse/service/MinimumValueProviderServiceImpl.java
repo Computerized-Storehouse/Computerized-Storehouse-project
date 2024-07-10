@@ -18,9 +18,9 @@ public class MinimumValueProviderServiceImpl implements MinimumValueProviderServ
 	@Override
 	public Double getValue(long sensorId) {
 		double value = serviceRequest(sensorId);
-		if(value == 0) {
+		if(value == 0.0) {
 			value = MinimumValueProviderService.DEFAULT_TRESHOLD_VALUE;
-			log.debug("The threshold value isn't set, default value {}", value);
+			log.debug("The threshold value is equal null, default value {}", value);
 		}
 		return value;
 	}
@@ -34,9 +34,8 @@ public class MinimumValueProviderServiceImpl implements MinimumValueProviderServ
 			}
 			value = (double) responseEntity.getBody();
 			log.debug("Thrshold value is {}", value);
-		} catch (Exception e) {
-			log.error("error at service request: {}", e.getMessage());
-			
+        } catch (Exception e) {
+            log.error("Error at service request: {}", e.getMessage());
 		}
 		return value;
 		

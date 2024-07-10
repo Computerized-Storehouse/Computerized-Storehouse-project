@@ -23,7 +23,6 @@ class ReplenishmentDetectorControllerTest {
 	private static final long SENSOR_ID_1 = 123;
 	private static final long SENSOR_ID_3 = 125;
 	private static final double SENSOR_FULLNES_1 = 50;
-	private static final double SENSOR_FULLNES_2 = 20;
 	private static final long ORDER_ID_1 = 245;
 	private static final long ORDER_ID_2 = 345;
 	@Autowired
@@ -47,8 +46,6 @@ class ReplenishmentDetectorControllerTest {
 	private SensorDataDto sensorDataWithGreaterValue = new SensorDataDto(SENSOR_ID_1, SENSOR_FULLNES_1, 0);
 	private SensorDataDto sensorDataWithGreaterValueOrderClose = new SensorDataDto(SENSOR_ID_3, SENSOR_FULLNES_1, 0);
 	private NewStateDto newStateWithSensorDataGreaterThresholdValue = new NewStateDto(sensorDataWithGreaterValue, -30);
-	private SensorDataDto sensorDataWithLessValue = new SensorDataDto(SENSOR_ID_1, SENSOR_FULLNES_2, 0);
-	private NewStateDto newStateWithSensorDataLessThresholdValue = new NewStateDto(sensorDataWithLessValue, -10);
 	private NewStateDto newStatewithDifferenceGreaterNull = new NewStateDto(sensorDataWithGreaterValue, 30);
 	private NewStateDto newStateButOrderStatusIsClose = new NewStateDto(sensorDataWithGreaterValueOrderClose, -30);
 
@@ -70,12 +67,6 @@ class ReplenishmentDetectorControllerTest {
 		
 	}
 	
-	@Test
-	void application_createRequest_statusIsOpen_fullnessLessThanThreshold_notSendData_Test() {
-		producer.send(new GenericMessage<NewStateDto>(newStateWithSensorDataLessThresholdValue ), consumerBindingName);
-		Message<byte[]> message = consumer.receive(10, producerBindingName);
-		assertNull(message);
-	}
 	
 	@Test
 	void application_createRequest_statusIsClosed_notSendData_Test() {

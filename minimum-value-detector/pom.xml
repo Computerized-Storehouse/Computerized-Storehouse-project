@@ -6,4 +6,11 @@
     <version>0.0.1</version>
   </parent>
   <artifactId>minimum-value-detector</artifactId>
+  <dependencies>
+  	<dependency>
+  		<groupId>telran.storehouse</groupId>
+  		<artifactId>web-exceptions</artifactId>
+  		<version>0.0.1</version>
+  	</dependency>
+  </dependencies>
 </project>
