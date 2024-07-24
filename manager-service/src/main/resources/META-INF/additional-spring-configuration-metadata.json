@@ -1,0 +1,27 @@
+{"properties": [
+  {
+    "name": "app.manager.service.producer.binding.name",
+    "type": "java.lang.String",
+    "description": "A description for 'app.manager.service.producer.binding.name'"
+  },
+  {
+    "name": "app.order.provider.path",
+    "type": "java.lang.String",
+    "description": "A description for 'app.order.provider.path'"
+   },
+  {
+    "name": "app.order.provider.port",
+    "type": "java.lang.String",
+    "description": "A description for 'app.order.provider.port'"
+  },
+  {
+    "name": "app.container.provider.port",
+    "type": "java.lang.String",
+    "description": "A description for 'app.container.provider.port'"
+  },
+  {
+    "name": "app.container.provider.path",
+    "type": "java.lang.String",
+    "description": "A description for 'app.container.provider.path'"
+   } 
+]}

@@ -18,7 +18,7 @@ import telran.storehouse.service.MinimumValueProviderService;
 @Slf4j
 public class MinimumValueDetectorAppl {
 	@Value("${app.minimum.value.detector.producer.binding.name}")
-	String producerBindingName;
+	private String producerBindingName;
 	final MinimumValueProviderService valueProviderService;
 	final StreamBridge streamBridge;
 
